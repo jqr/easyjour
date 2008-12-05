@@ -1,0 +1,28 @@
+Easyjour
+========
+
+Super simple access to Bonjour aka DNS based service discovery (DNSSD).
+
+Examples
+========
+
+  # Continously find HTTP servers and print the url
+  search = Easyjour::Search.new('http') do |result|
+    puts "http://#{result.target}:#{result.port}/"
+  end
+
+
+  # Find the Git servers that respond in 5 seconds or less
+  results = Easyjour.synchronous_search(5, 'git')
+  results.each do |result|
+    puts "git://#{result.target}:#{result.port}"
+  end
+
+
+Install
+=======
+
+Gem coming soon!
+
+Homepage: http://github.com/jqr/easyjour/tree/master  
+Copyright (c) 2008 Elijah Miller <elijah.miller@gmail.com>, released under the MIT license.

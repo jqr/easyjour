@@ -12,6 +12,10 @@ module Easyjour
     end
   end
   
+  # Makes a new service discoverable. Service is discoverable until stop is called.
+  #
+  #  # garbage_files is an HTTP server available on port 3000
+  #  Easyjour.serve("garbage_files", 'http', 3000)
   def self.serve(name, service, port, text_record = {}, protocol = :tcp)
     Service.new(name, service, port, text_record, protocol = :tcp)
   end

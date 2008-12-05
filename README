@@ -1,10 +1,15 @@
 Easyjour
 ========
 
-Super simple access to Bonjour aka DNS based service discovery (DNSSD).
+Super simple access to service announcing and discovery using Bonjour aka DNSSD.
+
 
 Examples
 ========
+
+  # garbage_files is an HTTP server available on port 3000
+  Easyjour.serve("garbage_files", 'http', 3000)
+
 
   # Continously find HTTP servers and print the url
   search = Easyjour::Search.new('http') do |result|
@@ -17,7 +22,7 @@ Examples
   results.each do |result|
     puts "git://#{result.target}:#{result.port}"
   end
-
+  
 
 Install
 =======

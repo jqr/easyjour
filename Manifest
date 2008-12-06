@@ -1,0 +1,9 @@
+CHANGELOG
+examples/httpjour.rb
+lib/easyjour/version.rb
+lib/easyjour.rb
+LICENSE
+Manifest
+Rakefile
+README
+spec/spec_helper.rb

@@ -27,7 +27,8 @@ Examples
 Install
 =======
 
-Gem coming soon!
+gem sources -a http://gems.github.com
+sudo gem install jqr-easyjour
 
 Homepage: http://github.com/jqr/easyjour/tree/master  
 Copyright (c) 2008 Elijah Miller <elijah.miller@gmail.com>, released under the MIT license.

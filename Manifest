@@ -1,4 +1,5 @@
 CHANGELOG
+easyjour.gemspec
 examples/httpjour.rb
 lib/easyjour/version.rb
 lib/easyjour.rb

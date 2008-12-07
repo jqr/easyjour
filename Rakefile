@@ -13,7 +13,7 @@ Echoe.new project_name, Easyjour::Version do |p|
   p.url             = "http://#{project_name}.rubyforge.org"
   p.author          = "Elijah Miller"
   p.email           = "elijah.miller@gmail.com"
-  # p.extra_deps      = [['gem', '>= version']]
+  # p.extra_deps      = [['net-mdns', '>= 0.4']]
   p.need_tar_gz     = false
   p.docs_host       = website_path
 end
@@ -25,33 +25,3 @@ task :default => :spec
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList["spec/**/*_spec.rb"]
 end
-
-
-desc 'Generate documentation for the scoped_associations plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'ScopedAssociations'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
-
-
-desc 'Upload website files to rubyforge'
-task :website do
-  sh %{rsync -av website/ #{WebsitePath}}
-  Rake::Task['website_docs'].invoke
-end
-
-task :website_docs do
-  Rake::Task['redocs'].invoke
-  sh %{rsync -av doc/ #{WebsitePath}/docs}
-end
-
-desc 'Preps the gem for a new release'
-task :prepare do
-  %w[manifest build_gemspec].each do |task|
-    Rake::Task[task].invoke
-  end
-end
-

@@ -1,6 +1,5 @@
 = Easyjour
 
-
 Super simple access to service announcing and discovery using Bonjour aka DNSSD.
 
 
@@ -9,6 +8,7 @@ Super simple access to service announcing and discovery using Bonjour aka DNSSD.
 Announce an HTTP server called garbage_files that's available on port 3000.
 
   service = Easyjour.serve("garbage_files", 'http', 3000)
+
 
 Search for HTTP servers and print them out as they reply.
 
@@ -19,6 +19,7 @@ Search for HTTP servers and print them out as they reply.
   print "Press enter to cancel the search: "
   gets
   search.stop   
+
 
 Do a blocking search for 5 seconds looking for git services.
 

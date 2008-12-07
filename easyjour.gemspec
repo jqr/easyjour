@@ -2,15 +2,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{easyjour}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Elijah Miller"]
-  s.date = %q{2008-12-05}
+  s.date = %q{2008-12-06}
   s.description = %q{Super simple access to service announcing and discovery using Bonjour aka DNSSD.}
   s.email = %q{elijah.miller@gmail.com}
   s.extra_rdoc_files = ["CHANGELOG", "lib/easyjour/version.rb", "lib/easyjour.rb", "LICENSE", "README"]
-  s.files = ["CHANGELOG", "examples/httpjour.rb", "lib/easyjour/version.rb", "lib/easyjour.rb", "LICENSE", "Rakefile", "README", "spec/spec_helper.rb", "Manifest", "easyjour.gemspec"]
+  s.files = ["CHANGELOG", "examples/httpjour.rb", "lib/easyjour/version.rb", "lib/easyjour.rb", "LICENSE", "Manifest", "Rakefile", "README", "spec/spec_helper.rb", "easyjour.gemspec"]
   s.has_rdoc = true
   s.homepage = %q{http://easyjour.rubyforge.org}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Easyjour", "--main", "README"]

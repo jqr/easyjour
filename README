@@ -1,11 +1,10 @@
-Easyjour
-========
+= Easyjour
+
 
 Super simple access to service announcing and discovery using Bonjour aka DNSSD.
 
 
-Examples
-========
+== Examples
 
   # garbage_files is an HTTP server available on port 3000
   Easyjour.serve("garbage_files", 'http', 3000)
@@ -24,11 +23,12 @@ Examples
   end
   
 
-Install
-=======
+== Install
 
-gem sources -a http://gems.github.com
-sudo gem install jqr-easyjour
 
-Homepage: http://github.com/jqr/easyjour/tree/master  
-Copyright (c) 2008 Elijah Miller <elijah.miller@gmail.com>, released under the MIT license.
+  sudo gem install easyjour
+
+
+
+Homepage:: http://github.com/jqr/easyjour/tree/master  
+License:: Copyright (c) 2008 Elijah Miller <mailto:elijah.miller@gmail.com>, released under the MIT license.

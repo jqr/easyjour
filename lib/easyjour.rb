@@ -1,4 +1,5 @@
-require 'net/dns/mdns-sd'
+require 'rubygems'
+require 'dnssd'
 
 module Easyjour
   # Turns a service and protocol into _service._protocol format, automatically
@@ -21,8 +22,14 @@ module Easyjour
   end
   
   class Service
-    def initialize(name, service, port, text_record = {}, protocol = :tcp)
-      @service = Net::DNS::MDNSSD.register(name, Easyjour.type_from_parts(service, protocol), 'local', port, text_record)
+    def initialize(name, service, port, text_record_hash = {}, protocol = :tcp)
+      text_record = DNSSD::TextRecord.new
+      text_record_hash.each do |key, value|
+        text_record[key] = value
+      end
+      
+      @service = DNSSD.register(name, Easyjour.type_from_parts(service, protocol), 'local', port, text_record.encode, DNSSD::Flags::Add) do |reply|
+      end
     end
     
     # Stops a service from being discoverable.
@@ -72,8 +79,8 @@ module Easyjour
       @results = []
       @results_mutex = Mutex.new
       
-      @query = Net::DNS::MDNSSD.browse(Easyjour.type_from_parts(service, protocol), 'local') do |reply|
-        Net::DNS::MDNSSD.resolve(reply.name, reply.type, reply.domain) do |reply|          
+      @query = DNSSD.browse(Easyjour.type_from_parts(service, protocol)) do |reply|
+        DNSSD.resolve(reply.name, reply.type, reply.domain) do |reply|          
           yield(reply) if block_given?
 
           @results_mutex.synchronize do

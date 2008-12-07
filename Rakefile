@@ -1,17 +1,16 @@
-require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
 require 'spec/rake/spectask'
-require 'lib/easyjour/version'
 
 require 'echoe'
-Echoe.new 'easyjour', Easyjour::Version do |p|
+Echoe.new 'easyjour' do |p|
   p.description     = "Super simple access to service announcing and discovery using Bonjour aka DNSSD."
   p.url             = "http://easyjour.rubyforge.org"
   p.author          = "Elijah Miller"
   p.email           = "elijah.miller@gmail.com"
-  # p.extra_deps      = [['dnssd', '>= 0.7.0']]
+  p.retain_gemspec  = true
   p.need_tar_gz     = false
+  p.extra_deps      = [
+    ['dnssd', '>= 0.7.0']
+  ]
 end
 
 

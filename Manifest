@@ -1,10 +1,8 @@
 CHANGELOG
-easyjour.gemspec
 examples/httpjour.rb
-lib/easyjour/version.rb
 lib/easyjour.rb
 LICENSE
 Manifest
 Rakefile
-README
+README.rdoc
 spec/spec_helper.rb
